@@ -1,0 +1,25 @@
+<div class="container-main">
+    <h2>Planets</h2>
+    <div style="margin-bottom: 20px;">
+        <app-router-button [options]="{title: 'back', link: ''}"></app-router-button>
+    </div>
+
+    @if (planets.length !== 0) {
+        <div class="container-list">
+        @for(planet of planets; track planet.name) {
+            <div class="container-list__item" 
+            [routerLink]="getId(planet.url)"
+             routerLinkActive="router-link-active">
+             <h3>{{ planet.name }}</h3>
+             <div>
+                <span>Population: <span>{{planet.population}}</span></span>
+                <span>Terrain: {{planet.terrain}}</span>
+             </div>
+            </div>
+        }
+    </div>
+        } @else {
+            <p>Ooops, something want wrong</p>
+        }
+    
+</div>
